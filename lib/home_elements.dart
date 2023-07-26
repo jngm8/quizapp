@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 
-class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.color1, this.color2, {super.key});
 
-  final Color color1;
-  final Color color2;
+class HomeElement extends StatelessWidget{
+
+  const HomeElement(this.homePage,{super.key});
+
+  final void Function() homePage;
 
   @override
-  Widget build(context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [color1, color2],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter),
-      ),
-      child: Center(
+  Widget build(context){
+    return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -28,13 +22,12 @@ class GradientContainer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 28),
             ),
             const SizedBox(height:70), //Space between image and the text
-            OutlinedButton.icon(onPressed: () {}, 
+            OutlinedButton.icon(onPressed: homePage, 
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
             label:const Text("Start Quiz"),
             icon: const Icon(Icons.arrow_right_sharp))
           ],
         ),
-      ),
-    );
+      );
   }
 }
