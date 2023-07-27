@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class HomeElement extends StatelessWidget{
@@ -17,14 +18,24 @@ class HomeElement extends StatelessWidget{
             width: 200,
             color: const Color.fromARGB(150, 255, 255, 255)),
             const SizedBox(height:70), //Space between image and the text
-            const Text(
+            Text(
               "Learn Flutter the Fun Way!",
-              style: TextStyle(color: Colors.white, fontSize: 28),
+              style: GoogleFonts.oswald(
+                color: Colors.white,
+                fontSize: 40,
+                fontWeight: FontWeight.bold
+              ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height:70), //Space between image and the text
             OutlinedButton.icon(onPressed: homePage, 
             style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-            label:const Text("Start Quiz"),
+            label: Text("Start Quiz",
+            style:GoogleFonts.oswald(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+              ),),
             icon: const Icon(Icons.arrow_right_sharp))
           ],
         ),
