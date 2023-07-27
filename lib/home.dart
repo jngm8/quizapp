@@ -21,6 +21,12 @@ class _HomeState extends State<Home>{
   var activeScreen = 'start-screen';
   List<String> selectedAnswers = [];
 
+  // @override
+  // void initState(){
+  //   super.initState();
+  //   activeScreen = HomeElement(switchScreen);
+  // }
+
   void switchScreen(){
     setState(() {
       activeScreen = 'question-screen';
@@ -36,6 +42,11 @@ class _HomeState extends State<Home>{
     }
   }
 
+  void switchScreenRestart(){
+    setState(() {
+      activeScreen = 'question-summary';
+    });
+  }
   
   @override
   Widget build(context) {
@@ -48,7 +59,12 @@ class _HomeState extends State<Home>{
     }
 
     if(activeScreen == 'results-screen'){
-      screenWidget = ResultScreen(selectedAnswers);
+      screenWidget = ResultScreen(selectedAnswers,switchScreenRestart);
+    }
+
+    if(activeScreen == 'question-summary'){
+      screenWidget = QuestionsScreen(onSelectedAnswers: addAnswers);
+      selectedAnswers = [];
     }
 
     return Container(

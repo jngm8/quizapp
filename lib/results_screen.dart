@@ -1,11 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  ResultScreen(this.chosenOptions, {super.key});
+
+  ResultScreen(this.chosenOptions, this.restart,{super.key});
+
+  final void Function() restart;
 
   final List<String> chosenOptions;
 
@@ -28,11 +30,13 @@ class ResultScreen extends StatelessWidget {
   Widget build(context) {
     final summaryFunc = summaryFunction();
     final totalQuestions = questions.length;
-    const correctQuestions = 0;
-
-    summaryFunc.where((item) {
-      return item["correct_answer"] == item["chose_answer"];
+    final correctQuestions = summaryFunc.where((item) {
+      return item["correct_answer"] == item["chosen_answer"];
     }).length;
+
+    final correctQuestionsBool = summaryFunc.where((item) {
+      return item["correct_answer"] == item["chosen_answer"];
+    });
 
     return SizedBox(
       width: double.infinity,
@@ -58,7 +62,7 @@ class ResultScreen extends StatelessWidget {
               height: 50,
             ),
             OutlinedButton.icon(
-                onPressed: () {},
+                onPressed: restart,
                 style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
                 label: Text(
                   "Restart Quiz",

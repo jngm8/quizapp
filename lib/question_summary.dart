@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizapp/results_screen.dart';
 
 class QuestionSummary extends StatelessWidget {
   const QuestionSummary(this.summaryList, {super.key});
@@ -15,7 +16,15 @@ class QuestionSummary extends StatelessWidget {
           children: summaryList.map((item) {
             return Row(
               children: [
-                const Icon(((Icons.arrow_back_ios))),
+                // Text(((item["question_index"] as int) + 1).toString(),),
+                Container(
+                  width: 30,
+                  height:30,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: ResultScreen.
+                  )
+                ),
                 Expanded(
                   // Takes the available space for the parent widget that is row
                   child:  Column(
