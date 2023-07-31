@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
   const Home(this.startQuiz /*this. makes the variable usable in the class(build method) */ ,{super.key});
@@ -13,10 +14,10 @@ class Home extends StatelessWidget {
           Image.asset('assets/images/quiz-logo.png',
               width: 200, color: const Color.fromARGB(128, 255, 255, 255)),
           const SizedBox(height: 60,), // Add some spacing between widgets
-          const Text("Learn Flutter the fun way!",style: TextStyle(
-              color: Colors.white,
-              fontSize: 28
-            ),
+          Text("Learn Flutter the fun way!",style: GoogleFonts.lato(
+            color: Colors.white,
+            fontSize: 28,
+          ),
           ),
           const SizedBox(height: 100,),
           OutlinedButton.icon(
