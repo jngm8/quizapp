@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home(this.startQuiz /*this. makes the variable usable in the class(build method) */ ,{super.key});
+
+  final void Function() startQuiz; // With "this." the value of "this.startQuiz" its passed to this variable to be used in the build method
   @override
   Widget build(context) {
     return Center( // Puts whatever we put in, in the center of the page
@@ -18,7 +20,7 @@ class Home extends StatelessWidget {
           ),
           const SizedBox(height: 100,),
           OutlinedButton.icon(
-              onPressed: (){},
+              onPressed: startQuiz,
               style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
               icon:const Icon(Icons.arrow_right_alt),
               label: const Text("Start Quiz",style: TextStyle(fontSize:20)),
