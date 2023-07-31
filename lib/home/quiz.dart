@@ -53,7 +53,7 @@ class _QuizState extends State<Quiz>{
 
     /*The build method is executed once, but since its a class that extends StatefulWidget it means it has the setState method.
     Now, setState is run always inside a function, it means that when a function is called in whatever place, it means this setState 
-    is runned, and the tree is goign to change whatever is inside this setState and the the build method is executed again*/ 
+    is runned, and the tree is going to change whatever is inside this setState and the the build method is executed again*/ 
 
     Widget? widgetScreen = Home(switchScreen); // It is type widget because when setState is called in whatever function to change the
                                               // screen, its type is Home() and if its type var, dart sets dinamically the type, 
@@ -64,7 +64,7 @@ class _QuizState extends State<Quiz>{
     } 
 
     if(changeScreen == "results-screen"){
-      widgetScreen = ResultsScreen(switchScreenRestart);
+      widgetScreen = ResultsScreen(switchScreenRestart,selectedAnswers); // We pass switchScreenRestart to led the changeScreen equal to returnScreen
     } 
 
     if(changeScreen == "return-screen"){
