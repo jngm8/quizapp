@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizapp/results/number_icons.dart';
 
 class DataSummary extends StatelessWidget {
   const DataSummary(this.data, {super.key});
@@ -8,6 +9,11 @@ class DataSummary extends StatelessWidget {
 
   @override
   Widget build(context) {
+
+    List<bool> answerColor = data.map((boolean){
+    return boolean["correct_answer"] == boolean["user_answer"];
+    }).toList();
+
     return SizedBox(
       height: 300,
       child: SingleChildScrollView(
@@ -17,8 +23,7 @@ class DataSummary extends StatelessWidget {
             (individualquest) {
               return Row(
                 children: [
-                  Text(((individualquest["question_index"] as int) + 1)
-                      .toString()),
+                  NumberIcons(answerColor,((individualquest["question_index"] as int) + 1).toString()),
                   const SizedBox(
                     width: 30,
                   ),

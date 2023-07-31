@@ -33,8 +33,7 @@ class ResultsScreen extends StatelessWidget {
     final totalNumberQuestions = questions.length;
 
     final totalNumberCorrectQuestions = summaryData.where((individualquest) {
-      return individualquest["user_answer"] ==
-          individualquest["correct_answer"];
+      return individualquest["user_answer"] == individualquest["correct_answer"];
     }).length;
 
     return SizedBox(
