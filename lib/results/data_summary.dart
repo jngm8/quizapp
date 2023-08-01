@@ -10,9 +10,9 @@ class DataSummary extends StatelessWidget {
   @override
   Widget build(context) {
 
-    List<bool> answerColor = data.map((boolean){
-    return boolean["correct_answer"] == boolean["user_answer"];
-    }).toList();
+    bool answerColor(boolean){
+      return boolean["correct_answer"] == boolean["user_answer"];
+    }  // In order to color the boxes with the numbers
 
     return SizedBox(
       height: 300,
@@ -23,7 +23,8 @@ class DataSummary extends StatelessWidget {
             (individualquest) {
               return Row(
                 children: [
-                  NumberIcons(answerColor,((individualquest["question_index"] as int) + 1).toString()),
+                  //Creates the icon colored if correct or not
+                  NumberIcons(answerColor(individualquest),((individualquest["question_index"] as int) + 1).toString()),
                   const SizedBox(
                     width: 30,
                   ),
